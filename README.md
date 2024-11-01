@@ -22,30 +22,30 @@ To run this application, make sure you have the following requirements installed
 
 1. Clone the repository and navigate to the backend folder:
 
-    ```bash
-    git clone <repository_URL>
-    cd backend
-    ```
+   ```bash
+   git clone <repository_URL>
+   cd backend
+   ```
 
 2. Install the dependencies:
 
-    ```bash
-    npm install
-    ```
+   ```bash
+   npm install
+   ```
 
 3. Create a `.env` file in the backend root directory with the following variables:
 
-    ```env
-    PORT=5000
-    ```
+   ```env
+   PORT=5000
+   ```
 
    Here, `PORT` is the port on which the backend server will listen for requests. Ensure this port is not already in use.
 
 4. Start the server:
 
-    ```bash
-    npm run dev
-    ```
+   ```bash
+   npm run dev
+   ```
 
    The server will be available at `http://localhost:3000` (or on the port you set in the `.env` file).
 
@@ -58,29 +58,29 @@ To run this application, make sure you have the following requirements installed
 
 1. From the project root, navigate to the frontend folder:
 
-    ```bash
-    cd frontend
-    ```
+   ```bash
+   cd frontend
+   ```
 
 2. Install the dependencies:
 
-    ```bash
-    npm install
-    ```
+   ```bash
+   npm install
+   ```
 
 3. Create a `.env` file in the frontend root directory with the following variable:
 
-    ```env
-    VITE_API_URL=http://localhost:3000
-    ```
+   ```env
+   VITE_API_URL=http://localhost:3000
+   ```
 
    Here, `VITE_API_URL` is the backend URL, which should match the port you set in the backend’s `.env` file. Ensure the backend is running before starting the frontend.
 
 4. Start the React application:
 
-    ```bash
-    npm run dev
-    ```
+   ```bash
+   npm run dev
+   ```
 
    The frontend application will be available at `http://localhost:5173` (or on the default port Vite assigns).
 
@@ -91,4 +91,5 @@ Each of the projects (backend and frontend) uses environment variables for confi
 ### Backend (`backend/.env`)
 
 ```env
-PORT=5000
+PORT=3000
+```
