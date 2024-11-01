@@ -36,7 +36,7 @@ To run this application, make sure you have the following requirements installed
 3. Create a `.env` file in the backend root directory with the following variables:
 
    ```env
-   PORT=5000
+   PORT=3000
    ```
 
    Here, `PORT` is the port on which the backend server will listen for requests. Ensure this port is not already in use.
