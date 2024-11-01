@@ -1,13 +1,22 @@
+import { useTaskContext } from "../../context/ContextHooks/useTaskContext";
 import { Task } from "../../types/task.type";
 
-export const TaskListItem = ({ title, status }: Task) => {
+export const TaskListItem = ({ id, title, status }: Task) => {
+  const taskContext = useTaskContext();
+
   return (
     <>
       <span
         className={`flex-1 cursor-pointer ${
           status === "completed" ? "line-through text-gray-500" : ""
         }`}
-        // onClick={() => toggleTaskStatus(task.id)}
+        onClick={() =>
+          taskContext.toggleTask(
+            id || "",
+            taskContext.tasks,
+            taskContext.setTasks
+          )
+        }
       >
         {title}
       </span>

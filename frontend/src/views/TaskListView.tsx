@@ -1,12 +1,13 @@
 import { TaskList } from "../components/TaskList/TaskList";
 import { TaskListTitle } from "../components/TaskList/TaskListTitle";
-import { Task } from "../types/task.type";
+import { useTaskContext } from "../context/ContextHooks/useTaskContext";
 
-const TaskListView = ({ tasksList }: { tasksList: Task[] }) => {
+const TaskListView = () => {
+  const taskContext = useTaskContext();
   return (
     <>
       <TaskListTitle />
-      <TaskList tasksList={tasksList} />
+      <TaskList tasksList={taskContext.tasks} />
     </>
   );
 };

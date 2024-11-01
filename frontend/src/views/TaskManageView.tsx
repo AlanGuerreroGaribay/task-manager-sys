@@ -1,25 +1,29 @@
 import { TaskManager } from "../components/TaskManager/TaskManager";
 import { Input } from "../components/Input/Input";
 import { Button } from "../components/Button/Button";
-import React, { SetStateAction } from "react";
+import { useTaskContext } from "../context/ContextHooks/useTaskContext";
+import { useState } from "react";
+import { useErrorContext } from "../context/ContextHooks/useErrorContext";
 
-const TaskManageView = ({
-  value,
-  setTaskTitle,
-  createTask,
-}: {
-  value: string;
-  setTaskTitle: React.Dispatch<SetStateAction<string>>;
-  createTask: React.MouseEventHandler<HTMLButtonElement>;
-}) => {
-  const changeInputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setTaskTitle(e.target.value);
-  };
+const TaskManageView = () => {
+  const [taskTitle, setTaskTitle] = useState<string>("");
+  const error = useErrorContext();
+  const taskContext = useTaskContext();
 
   return (
     <TaskManager>
-      <Input value={value} onChange={changeInputHandler} />
-      <Button text="Add Task" handler={createTask} />
+      <Input value={taskTitle} onChange={(e) => setTaskTitle(e.target.value)} />
+      <Button
+        text="Add Task"
+        handler={() =>
+          taskContext.addNewTask(
+            taskTitle,
+            taskContext.tasks,
+            taskContext.setTasks,
+            error.setError
+          )
+        }
+      />
     </TaskManager>
   );
 };
